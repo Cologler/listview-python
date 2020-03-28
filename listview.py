@@ -132,6 +132,14 @@ class ListView(MutableSequence):
         else:
             self.source.insert(real_index, object)
 
+    def append(self, object):
+        'Append object to the end of the list.'
+        self.source.append(object)
+
+    def extend(self, iterable):
+        'Extend list by appending elements from the iterable.'
+        self.source.extend(iterable)
+
     # impl list
 
     def __add__(self, other):
