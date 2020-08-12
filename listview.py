@@ -165,6 +165,6 @@ class ListView(MutableSequence):
         return ListView(self.source.copy(), self.select)
 
     def sort(self, *, key=None, reverse=False):
-        items = list(self)
+        items = self.__list__()
         items.sort(key=key, reverse=reverse)
         self[:] = items
