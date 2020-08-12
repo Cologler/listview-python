@@ -59,6 +59,12 @@ class ListView(MutableSequence):
             if self.select(item):
                 yield item
 
+    def __list__(self):
+        return [i for i in self]
+
+    def __tuple__(self):
+        return tuple(i for i in self)
+
     def __reversed__(self):
         for item in reversed(self.source):
             if self.select(item):
@@ -143,16 +149,16 @@ class ListView(MutableSequence):
     # impl list
 
     def __add__(self, other):
-        raise NotImplementedError
+        return self.__list__().__add__(other)
 
     def __rmul__(self, other):
-        raise NotImplementedError
+        return self.__list__().__rmul__(other)
 
     def __mul__(self, other):
-        raise NotImplementedError
+        return self.__list__().__mul__(other)
 
     def __imul__(self, other):
-        raise NotImplementedError
+        return self.__list__().__imul__(other)
 
     def copy(self):
         'copy source list and make a same view.'
